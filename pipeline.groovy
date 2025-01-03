@@ -1,23 +1,32 @@
 pipeline {
     agent any
 
+    environment {
+        // Define any environment variables if needed
+        GITHUB_REPO = 'https://github.com/yourusername/your-repository.git'
+    }
+
     stages {
-        stage('Build') {
+        stage('Checkout Code') {
             steps {
-                bash 'demo.sh'
-                sleep 30
+                // Checkout the code from GitHub
+                git url: GITHUB_REPO
             }
         }
-        stage('TEST') {
+        stage('Run Shell Script') {
             steps {
-                sleep 15
-                echo 'sleep completed'
+                // Execute the shell script
+                sh '.demo.sh'
             }
         }
-        stage('Deploy'){
-            steps {
-                echo 'Test deployed'
-            }
+    }
+
+    post {
+        success {
+            echo 'Script executed successfully.'
+        }
+        failure {
+            echo 'There was an error in executing the script.'
         }
     }
 }
