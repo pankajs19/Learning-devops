@@ -1,10 +1,17 @@
 pipeline {
-    agent any
-    
+    agent any  // This can be a specific agent like 'ubuntu' or 'linux'
+
     stages {
-        stage('Run Shell Script') {
+        stage('Checkout') {
             steps {
-                // Execute the shell script
+                // Checkout the code from GitHub
+                git 'https://github.com/pankajs19/Learning-devops.git'
+            }
+        }
+        stage('Execute Shell Script') {
+            steps {
+                // Make the script executable and run it
+                sh 'chmod +x ./your-script.sh'
                 sh './your-script.sh'
             }
         }
@@ -12,10 +19,10 @@ pipeline {
 
     post {
         success {
-            echo 'Script executed successfully.'
+            echo 'Shell script executed successfully.'
         }
         failure {
-            echo 'There was an error in executing the script.'
+            echo 'There was an error executing the shell script.'
         }
     }
 }
