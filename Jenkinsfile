@@ -2,12 +2,12 @@ pipeline {
     agent any  // This can be a specific agent like 'ubuntu' or 'linux'
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from GitHub
-                git 'https://github.com/pankajs19/Learning-devops.git'
-            }
-        }
+     //   stage('Checkout') {
+     //       steps {
+     //           // Checkout the code from GitHub
+     //           git 'https://github.com/pankajs19/Learning-devops.git'
+     //       }
+     //   }
         stage('Execute Shell Script') {
             steps {
                 // Make the script executable and run it
