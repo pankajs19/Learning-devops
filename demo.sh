@@ -1,2 +1,2 @@
-echo "This is a simple file to test git on jenkins!!! This is shell file" 
-echo "v2"
+#!/bin/bash
+echo "This is my shell script!"
