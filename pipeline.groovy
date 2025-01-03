@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define any environment variables if needed
-        GITHUB_REPO = 'https://github.com/yourusername/your-repository.git'
+        GITHUB_REPO = 'https://github.com/pankajs19/Learning-devops.git'
     }
 
     stages {
