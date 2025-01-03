@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Define any environment variables if needed
+        // Define any environment variables if needed yes
         GITHUB_REPO = 'https://github.com/pankajs19/Learning-devops.git'
     }
 
