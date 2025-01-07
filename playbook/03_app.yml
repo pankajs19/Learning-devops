@@ -1,0 +1,9 @@
+---
+- name: install application
+  hosts: localhost
+
+  tasks:
+  - name: Install a tree application
+    yum:
+      name: tree
+      state: present

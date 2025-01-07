@@ -1,0 +1,15 @@
+---
+- name: user creation
+  hosts: all
+
+  tasks:
+  - name: create user
+    user:
+      name: atharva
+      comment: new user adding
+      shell : /bin/bash
+
+    user:
+      name: atharva
+      update_password: always
+      password: "{{'abhi' | password_hash('sha512')}}"

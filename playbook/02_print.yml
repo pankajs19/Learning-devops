@@ -1,0 +1,7 @@
+---
+- name: Check print
+  hosts: localhost
+
+  tasks:
+  - name: Checking print command
+    debug: msg="This is from anible-playbook"

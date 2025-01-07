@@ -1,0 +1,8 @@
+---
+- name: Test connectivity
+  hosts: localhost
+
+  tasks:
+  - name: test ping
+    ping:
+

@@ -1,0 +1,15 @@
+---
+- name: Setup cron job
+  hosts: all
+
+  tasks:
+  - name: Setting up cron job for a script file
+    cron:
+      name: Run test script
+      minute: "*"
+      hour: "*"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      user: root
+      job: /home/pankaj/ansible-manifest/test.sh

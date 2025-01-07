@@ -1,0 +1,16 @@
+---
+- name: Copy shell scirpt to remote machine
+  hosts: all
+
+  tasks:
+  - name: copy shell scirpt
+    copy:
+      src: /home/pankaj/test.sh 
+      dest: /home/pankaj/ansible-manifest
+
+  - name: run copied shell script
+    shell: /home/pankaj/ansible-manifest/test.sh
+
+  - name:
+    debug: msg="file copied & run successfully"
+      
