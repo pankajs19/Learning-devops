@@ -42,7 +42,7 @@ pipeline {
 	    steps {
 		script { 
                     // Add the target host's SSH key to known_hosts using ssh-keyscan
-                    sh "ssh-keyscan -H ${TARGET_HOST} >> ~/root/.ssh/known_hosts"
+                    sh "ssh-keyscan -H ${TARGET_HOST} >> /root/.ssh/known_hosts"
 
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
