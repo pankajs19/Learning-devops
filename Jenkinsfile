@@ -40,9 +40,11 @@ pipeline {
 	}
 	stage('Ansible playbook'){
 	    steps {
-		script { 
+		script {
+		    // Ensure the Jenkins user has the proper permissions
+                    sh 'mkdir -p ~/.ssh' 
                     // Add the target host's SSH key to known_hosts using ssh-keyscan
-                   // ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> /root/.ssh/known_hosts"
+                    ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> ~/.ssh/known_hosts"
 
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
