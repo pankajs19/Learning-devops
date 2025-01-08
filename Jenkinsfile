@@ -50,9 +50,7 @@ pipeline {
 
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
-                    sh """
-ansible-playbook credentialsId: 'ansible-host', disableHostKeyChecking: true, installation: 'Ansible-build', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/01-touch.yml', vaultTmpPath: ''
-                    """
+ansiblePlaybook credentialsId: 'testing-ans', disableHostKeyChecking: true, installation: 'Ansible-build', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/01-touch.yml', vaultTmpPath: ''
                 }
 	    }
 	  }
