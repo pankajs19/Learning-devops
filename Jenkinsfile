@@ -51,7 +51,7 @@ pipeline {
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
                     sh """
-ansiblePlaybook credentialsId: 'ansible-host', installation: 'Ansible-build', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/01-touch.yml', vaultTmpPath: ''
+ansible-playbook credentialsId: 'ansible-host', installation: 'Ansible-build', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/01-touch.yml', vaultTmpPath: ''
                     """
                 }
 	    }
