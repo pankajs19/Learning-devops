@@ -47,7 +47,7 @@ pipeline {
                     //sh 'mkdir -p ~/.ssh' 
                     // Add the target host's SSH key to known_hosts using ssh-keyscan
                     //ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> ~/.ssh/known_hosts"
-
+		// this is just a demo file
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
 ansiblePlaybook credentialsId: 'testing-ans', disableHostKeyChecking: true, installation: 'Ansible-build', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/01_touch.yml', vaultTmpPath: ''
