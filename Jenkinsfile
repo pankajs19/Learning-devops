@@ -41,7 +41,7 @@ pipeline {
 	}
 	stage('Ansible playbook'){
 	    steps {
-		sshagent(['jenkins-ssh-key'])
+		//sshagent(['jenkins-ssh-key'])
 		script {
 		    // Ensure the Jenkins user has the proper permissions
                     //sh 'mkdir -p ~/.ssh' 
