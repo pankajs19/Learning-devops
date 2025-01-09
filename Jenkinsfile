@@ -25,6 +25,7 @@ pipeline {
                 // Make the script executable and run it
                 sh 'chmod +x ./your-script.sh'
                 sh './your-script.sh'
+		sh 'whoami'
             }
         }
 	stage('Verify File'){
