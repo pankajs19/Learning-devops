@@ -5,7 +5,7 @@
   tasks:
     - name: Ensure the file exists
       file:
-        path: "/tmp/emptyfile.txt"  # Specify the file path
+        path: "/home/jenkins/emptyfile.txt"  # Specify the file path
         state: touch  # This will create an empty file if it doesn't exist
         mode: '0644'  # Set file permissions (optional)
 
