@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define environment variables
         INVENTORY_FILE = '/etc/ansible/hosts'  // Path to your Ansible inventory file
-        PLAYBOOK_FILE = '/home/jenkins/Learning-devops/playbook/01_touch.yml'     // Path to your Ansible playbook
+        PLAYBOOK_FILE = '/home/jenkins/Learning-devops/playbook/00_first.yml'     // Path to your Ansible playbook
 	TARGET_HOST = '192.168.64.2'
 	ANSIBLE_HOST_KEY_CHECKING = 'false'
     }
