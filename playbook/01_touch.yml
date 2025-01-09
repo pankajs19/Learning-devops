@@ -3,6 +3,9 @@
   hosts: all
   become: yes
   tasks:
+    - name:
+      command:
+        cmd: whoami
     - name: Ensure the file exists
       file:
         path: "/home/jenkins/emptyfile.txt"  # Specify the file path
