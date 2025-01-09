@@ -5,6 +5,6 @@
   tasks:
   - name: create a new file on root
     file:
-      path: /home/pankaj/ansible-manifest/yamltest
+      path: /home/jenkins/yamltest
       state: touch
       mode: u=rwx,g=r,o=wr
