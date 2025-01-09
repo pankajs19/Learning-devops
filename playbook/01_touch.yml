@@ -1,10 +1,16 @@
 ---
-- name: create a new file
+- name: Create an empty file
   hosts: all
-
+  become: yes
   tasks:
-  - name: create a new file on root
-    file:
-      path: /home/jenkins/yamltest
-      state: touch
-      mode: u=rwx,g=r,o=wr
+    - name: Ensure the file exists
+      file:
+        path: "/tmp/emptyfile.txt"  # Specify the file path
+        state: touch  # This will create an empty file if it doesn't exist
+        mode: '0644'  # Set file permissions (optional)
+
+    - name: create a directory
+      file:
+        path: "/home/jenkins/test"
+        state: directory
+        mode : 0755
