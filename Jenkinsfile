@@ -14,6 +14,15 @@ pipeline {
                 checkout scm
             }
         }
+	stage('Load .env varaible') {
+		steps {
+			 sh '''
+                    if [ -f .env ]; then
+                        export $(cat .env | xargs)
+                    fi
+		    '''
+		}
+	}
         stage('Build') {
             steps {
                 // Add your build steps here
@@ -31,22 +40,18 @@ pipeline {
 	stage('Verify File'){
 	    steps {
                 script {
-		    sh '''
-                    if [ -f .env ]; then
-                        export $(cat .env | xargs)
-                    fi
-		    '''
+		   
                     // Install Ansible if it's not already installed
-                    if (!fileExists('${env.HOSTS_FILE}')){
-                        echo "Host file is available... ${env.HOSTS_FILE}"
+                    if (!fileExists("${env.HOSTS_FILE}")){
+                        echo "Host file is available... : ${env.HOSTS_FILE}"
 		    } else { 
-			echo "Host file is not present... ${env.HOSTS_FILE}"
+			echo "Host file is not present... : ${env.HOSTS_FILE}"
 		    }
 		    
-		    if (!fileExists('${env.PLAYBOOK_PATH}')){
-			echo "Playbook present... at path ${env.PLAYBOOK_PATH}" 
+		    if (!fileExists("${env.PLAYBOOK_PATH}")){
+			echo "Playbook present... at path : ${env.PLAYBOOK_PATH}" 
 		    } else {
-			    echo "Playbook is unavailable at path ${env.PLAYBOOK_PATH}"
+			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
 		    }
                     }
                 }
