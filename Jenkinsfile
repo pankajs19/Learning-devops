@@ -30,12 +30,12 @@ pipeline {
         }
 	stage('Verify File'){
 	    steps {
+                script {
 		    sh '''
                     if [ -f .env ]; then
                         export $(cat .env | xargs)
                     fi
 		    '''
-                script {
                     // Install Ansible if it's not already installed
                     if (!fileExists('${env.HOST_FILE}')){
                         echo "Host file is available... ${env.HOST_FILE}"
