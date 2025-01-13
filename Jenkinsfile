@@ -32,13 +32,13 @@ pipeline {
 	    steps {
                 script {
                     // Install Ansible if it's not already installed
-                    if (fileExists('${INVENTORY_FILE}')){
+                    if (!fileExists('${INVENTORY_FILE}')){
                         echo 'Host file is available...' 
 		    } else { 
 			echo 'Host file is not present'
 		    }
 		    
-		    if (fileExists('${PLAYBOOK_FILE}')){
+		    if (!fileExists('${PLAYBOOK_FILE}')){
 			echo 'Playbook present...' 
 		    } else {
 			    echo 'Playbook is unavailable'
