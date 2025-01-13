@@ -61,7 +61,7 @@ pipeline {
                     //ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> ~/.ssh/known_hosts"
                     // Run the Ansible playbook using the defined inventory file
                     echo 'Running Ansible Playbook...'
-		    sh 'ansible-playbook ${PLAYBOOK_FILE}'
+		    sh "ansible-playbook ${env.PLAYBOOK_FILE}"
                 }
 	    }
 	  }
