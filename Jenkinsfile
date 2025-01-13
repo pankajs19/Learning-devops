@@ -38,7 +38,7 @@ pipeline {
 			echo 'Host file is not present'
 		    }
 		    
-		    if (fileExists('/etc/absible/01_touch.yml')){
+		    if (fileExists(${PLAYBOOK_FILE})){
 			echo 'Playbook present...' 
 		    } else {
 			    echo 'Playbook is unavailable'
