@@ -38,7 +38,7 @@ pipeline {
 			echo 'Host file is not present'
 		    }
 		    
-		    if (fileExists(${PLAYBOOK_FILE})){
+		    if (fileExists('${PLAYBOOK_FILE}')){
 			echo 'Playbook present...' 
 		    } else {
 			    echo 'Playbook is unavailable'
