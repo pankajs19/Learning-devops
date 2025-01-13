@@ -38,9 +38,9 @@ pipeline {
 		    '''
                     // Install Ansible if it's not already installed
                     if (!fileExists('${env.HOST_FILE}')){
-                        echo "Host file is available... ${env.HOST_FILE}"
+                        echo "Host file is available... ${env.HOSTS_FILE}"
 		    } else { 
-			echo "Host file is not present... ${env.HOST_FILE}"
+			echo "Host file is not present... ${env.HOSTS_FILE}"
 		    }
 		    
 		    if (!fileExists('${env.PLAYBOOK_PATH}')){
