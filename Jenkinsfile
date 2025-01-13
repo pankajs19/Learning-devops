@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         // Define environment variables
-        INVENTORY_FILE = '/etc/ansible/hosts'  // Path to your Ansible inventory file
-        PLAYBOOK_FILE = '/home/jenkins/Learning-devops/playbook/01_touch.yml'     // Path to your Ansible playbook
-	TARGET_HOST = '192.168.64.2'
+        //INVENTORY_FILE = '/etc/ansible/hosts'  // Path to your Ansible inventory file
+        //PLAYBOOK_FILE = '/home/jenkins/Learning-devops/playbook/01_touch.yml'     // Path to your Ansible playbook
+	//TARGET_HOST = '192.168.64.2'
 	ANSIBLE_HOST_KEY_CHECKING = 'false'
     }
     stages {
@@ -37,7 +37,7 @@ pipeline {
                     fi
 		    '''
                     // Install Ansible if it's not already installed
-                    if (!fileExists('${env.HOST_FILE}')){
+                    if (!fileExists('${env.HOSTS_FILE}')){
                         echo "Host file is available... ${env.HOSTS_FILE}"
 		    } else { 
 			echo "Host file is not present... ${env.HOSTS_FILE}"
