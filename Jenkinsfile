@@ -40,7 +40,7 @@ pipeline {
 	stage('Verify File'){
 	    steps {
                 script {
-		   
+		   sh """
                     // Install Ansible if it's not already installed
                     if (!fileExists("${env.HOSTS_FILE}")){
                         echo "Host file is available... : ${env.HOSTS_FILE}"
@@ -53,6 +53,7 @@ pipeline {
 		    } else {
 			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
 		    }
+      """
                     }
                 }
 	}
@@ -65,8 +66,10 @@ pipeline {
                     // Add the target host's SSH key to known_hosts using ssh-keyscan
                     //ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> ~/.ssh/known_hosts"
                     // Run the Ansible playbook using the defined inventory file
+		 sh """
                     echo 'Running Ansible Playbook...'
 		    sh "ansible-playbook ${env.PLAYBOOK_FILE}"
+      """
                 }
 	    }
 	  }
