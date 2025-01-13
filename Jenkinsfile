@@ -29,16 +29,21 @@ pipeline {
             }
         }
 	stage('Verify File'){
+		sh '''
+                    if [ -f .env ]; then
+                        export $(cat .env | xargs)
+                    fi
+		    '''
 	    steps {
                 script {
                     // Install Ansible if it's not already installed
-                    if (!fileExists('${INVENTORY_FILE}')){
-                        echo 'Host file is available...' 
+                    if (!fileExists('${env.HOST_FILE}')){
+                        echo 'Host file is available... ${env.HOST_FILE}' 
 		    } else { 
-			echo 'Host file is not present'
+			echo 'Host file is not present... ${env.HOST_FILE}'
 		    }
 		    
-		    if (!fileExists('${PLAYBOOK_FILE}')){
+		    if (!fileExists('${env.PLAYBOOK_PATH}')){
 			echo 'Playbook present...' 
 		    } else {
 			    echo 'Playbook is unavailable'
