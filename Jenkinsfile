@@ -32,7 +32,7 @@ pipeline {
 	    steps {
                 script {
                     // Install Ansible if it's not already installed
-                    if (!fileExists('/etc/ansible/hosts')) {
+                    if (!fileExists('/etc/ansible/hosts')){
                         echo 'Host file is available...' 
 		    } else { 
 			echo 'Host file is not present'
