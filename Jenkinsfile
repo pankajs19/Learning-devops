@@ -29,12 +29,12 @@ pipeline {
             }
         }
 	stage('Verify File'){
-		sh '''
+	    steps {
+		    sh '''
                     if [ -f .env ]; then
                         export $(cat .env | xargs)
                     fi
 		    '''
-	    steps {
                 script {
                     // Install Ansible if it's not already installed
                     if (!fileExists('${env.HOST_FILE}')){
