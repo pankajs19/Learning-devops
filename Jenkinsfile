@@ -32,13 +32,13 @@ pipeline {
 	    steps {
                 script {
                     // Install Ansible if it's not already installed
-                    if (!fileExists('/etc/ansible/hosts')){
+                    if (fileExists('/etc/ansible/hosts')){
                         echo 'Host file is available...' 
 		    } else { 
 			echo 'Host file is not present'
 		    }
 		    
-		    if (!fileExists('/etc/absible/01_touch.yml')){
+		    if (fileExists('/etc/absible/01_touch.yml')){
 			echo 'Playbook present...' 
 		    } else {
 			    echo 'Playbook is unavailable'
