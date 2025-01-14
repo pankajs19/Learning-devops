@@ -16,11 +16,9 @@ pipeline {
         }
 	stage('Load .env varaible') {
 		steps {
-			 sh '''
-                    if [ -f .env ]; then
-                        export $(cat .env | xargs)
-                    fi
-		    '''
+			def props = readProperties file: 'env.properties'
+			env.HOSTS_FILE = props['HOSTS_FILE']
+                    	env.PLAYBOOK_FILE = props['PLAYBOOK_FILE']
 		}
 	}
         stage('Build') {
@@ -47,10 +45,10 @@ pipeline {
 			echo "Host file is not present... : ${env.HOSTS_FILE}"
 		    }
 		    
-		    if (!fileExists("${env.PLAYBOOK_PATH}")){
-			echo "Playbook present... at path : ${env.PLAYBOOK_PATH}" 
+		    if (!fileExists("${env.PLAYBOOK_FILE}")){
+			echo "Playbook present... at path : ${env.PLAYBOOK_FILE}" 
 		    } else {
-			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
+			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_FILE}"
 		    }
                     }
                 }
