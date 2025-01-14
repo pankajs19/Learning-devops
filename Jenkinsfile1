@@ -36,7 +36,7 @@ pipeline {
 
                     // Run the Ansible playbook with the provided paths
                     sh """
-                        ansible-playbook -i ${env.HOST_FILE_PATH} ${env.PLAYBOOK_PATH}
+                        ansible-playbook -i ${env.HOSTS_FILE} ${env.PLAYBOOK_PATH}
                     """
                 }
             }
