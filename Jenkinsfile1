@@ -1,13 +1,18 @@
 pipeline {
     agent any
 
-    environment {
+   // environment {
         // Default values (optional)
         //PLAYBOOK_PATH = ''
         //HOST_FILE_PATH = ''
-    }
+    //}
 
     stages {
+      stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Load Config Variables') {
             steps {
                 script {
