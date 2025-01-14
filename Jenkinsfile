@@ -64,10 +64,10 @@ pipeline {
                     // Add the target host's SSH key to known_hosts using ssh-keyscan
                     //ssh "sudo ssh-keyscan -H ${TARGET_HOST} >> ~/.ssh/known_hosts"
                     // Run the Ansible playbook using the defined inventory file
-		 sh """
-                    echo 'Running Ansible Playbook...'
-		    sh "ansible-playbook ${env.PLAYBOOK_PATH}"
-      		"""
+	 	sh """
+   			echo "Running playbook"
+                        ansible-playbook -i ${env.HOSTS_FILE} ${env.PLAYBOOK_PATH}
+                    """
                 }
 	    }
 	  }
