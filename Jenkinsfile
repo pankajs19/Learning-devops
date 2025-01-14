@@ -41,18 +41,10 @@ pipeline {
 	stage('Verify File'){
 	    steps {
                 script {
-                    // Install Ansible if it's not already installed
-                    if (!fileExists("${env.HOSTS_FILE}")){
-                        echo "Host file is available... : ${env.HOSTS_FILE}"
-		    } else { 
-			echo "Host file is not present... : ${env.HOSTS_FILE}"
-		    }
-		    
-		    if (!fileExists("${env.PLAYBOOK_PATH}")){
-			echo "Playbook present... at path : ${env.PLAYBOOK_PATH}" 
-		    } else {
-			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
-		    }
+                    // Verify if Playbook & Hosts file exists
+          		 if (!env.PLAYBOOK_PATH || !env.HOSTS_FILE){
+                   	 error "Playbook path or Hosts file does not exists"
+                   	 }
                     }
                 }
 	}
