@@ -30,8 +30,8 @@ pipeline {
             steps {
                 script {
                     // Check if the playbook path and host file path are set
-                    if (!env.PLAYBOOK_PATH || !env.HOSTS_FILE) {
-                        error "Playbook path or Host file path is not defined."
+                  if (!env.PLAYBOOK_PATH || !env.HOSTS_FILE){
+                    error "Playbook path or Hosts file does not exists"
                     }
 
                     // Run the Ansible playbook with the provided paths
