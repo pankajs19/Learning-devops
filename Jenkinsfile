@@ -20,6 +20,7 @@ pipeline {
 			def props = readProperties file: 'config.properties'
 			env.HOSTS_FILE = props['HOSTS_FILE']
                     	env.PLAYBOOK_PATH = props['PLAYBOOK_PATH']
+			env.ANSIBLE_HOST_KEY_CHECKING = props['ANSIBLE_HOST_KEY_CHECKING']
 			}
 		}
 	}
