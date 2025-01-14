@@ -19,7 +19,7 @@ pipeline {
 			script {
 			def props = readProperties file: 'config.properties'
 			env.HOSTS_FILE = props['HOSTS_FILE']
-                    	env.PLAYBOOK_FILE = props['PLAYBOOK_FILE']
+                    	env.PLAYBOOK_PATH = props['PLAYBOOK_PATH']
 			}
 		}
 	}
@@ -47,10 +47,10 @@ pipeline {
 			echo "Host file is not present... : ${env.HOSTS_FILE}"
 		    }
 		    
-		    if (!fileExists("${env.PLAYBOOK_FILE}")){
-			echo "Playbook present... at path : ${env.PLAYBOOK_FILE}" 
+		    if (!fileExists("${env.PLAYBOOK_PATH}")){
+			echo "Playbook present... at path : ${env.PLAYBOOK_PATH}" 
 		    } else {
-			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_FILE}"
+			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
 		    }
                     }
                 }
@@ -66,7 +66,7 @@ pipeline {
                     // Run the Ansible playbook using the defined inventory file
 		 sh """
                     echo 'Running Ansible Playbook...'
-		    sh "ansible-playbook ${env.PLAYBOOK_FILE}"
+		    sh "ansible-playbook ${env.PLAYBOOK_PATH}"
       		"""
                 }
 	    }
