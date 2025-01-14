@@ -16,7 +16,7 @@ pipeline {
         }
 	stage('Load .env varaible') {
 		steps {
-			def props = readProperties file: 'env.properties'
+			def props = readProperties file: 'config.properties'
 			env.HOSTS_FILE = props['HOSTS_FILE']
                     	env.PLAYBOOK_FILE = props['PLAYBOOK_FILE']
 		}
