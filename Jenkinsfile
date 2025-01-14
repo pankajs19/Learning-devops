@@ -40,7 +40,6 @@ pipeline {
 	stage('Verify File'){
 	    steps {
                 script {
-		   sh """
                     // Install Ansible if it's not already installed
                     if (!fileExists("${env.HOSTS_FILE}")){
                         echo "Host file is available... : ${env.HOSTS_FILE}"
@@ -53,7 +52,6 @@ pipeline {
 		    } else {
 			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
 		    }
-      			"""
                     }
                 }
 	}
