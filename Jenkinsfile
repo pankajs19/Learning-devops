@@ -61,8 +61,19 @@ pipeline {
    			echo "Running playbook"
                         ansible-playbook -i ${env.HOSTS_FILE} ${env.PLAYBOOK_PATH}
                     """
-                }
-	    }
+                	}
+	    	}
 	  }
+    }
+	post {
+        always {
+            echo "Pipeline execution completed."
+        }
+        success {
+            echo "All playbooks ran successfully."
+        }
+        failure {
+            echo "An error occurred while running playbooks."
+        }
     }
 }
