@@ -53,7 +53,7 @@ pipeline {
 		    } else {
 			    echo "Playbook is unavailable at path : ${env.PLAYBOOK_PATH}"
 		    }
-      """
+      			"""
                     }
                 }
 	}
@@ -69,7 +69,7 @@ pipeline {
 		 sh """
                     echo 'Running Ansible Playbook...'
 		    sh "ansible-playbook ${env.PLAYBOOK_FILE}"
-      """
+      		"""
                 }
 	    }
 	  }
